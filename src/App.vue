@@ -19,7 +19,8 @@ const iceCreamFlavors = ref([]);
     {{ header }} 
   </h1>
   <div class="add-item form">
-  <input v-model="newItem" type="text" placeholder="Agregar un articulo"></input>
+  <input v-model="newItem" type="text" placeholder="Agregar un articulo" 
+  v-on:keyup.enter="items.push({id: items.length + 1, label: newItem})"></input>
   <!--Caja de seleccion de Prioridad-->
   <label>
     <input type="checkbox" v-model="newItemHighPriority">
