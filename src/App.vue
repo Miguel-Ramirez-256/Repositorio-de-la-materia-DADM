@@ -18,36 +18,31 @@ const iceCreamFlavors = ref([]);
    <i class="material-icons shopping-cart-icon">local_mall</i> 
     {{ header }} 
   </h1>
-  <div class="add-item form">
-  <input v-model="newItem" type="text" placeholder="Agregar un articulo" 
-  v-on:keyup.enter="items.push({id: items.length + 1, label: newItem})"></input>
+  <form v-on:submit.prevent="items.push({id: items.length + 1, label: newItem})" class="add-item form">
+  <input v-model="newItem" type="text" placeholder="Agregar un articulo" />
   <!--Caja de seleccion de Prioridad-->
   <label>
-    <input type="checkbox" v-model="newItemHighPriority">
+    <input type="checkbox" v-model="newItemHighPriority" />
     Alta Prioridad
-  </input>
   </label>
   <!--Boton-->
-  <button class="btn btn-primary" v-on:click="items.push({id: items.length + 1, label: newItem})">
+  <button class="btn btn-primary">
     Salvar Articulo
   </button>
-</div>
+  </form>
   <ul></ul>
   <!-- Helados -->
    <label>
-    <input type="checkbox" v-model="iceCreamFlavors" value="Vanilla">
+    <input type="checkbox" v-model="iceCreamFlavors" value="Vanilla" />
     Vanilla
-   </input>
   </label>
   <label>
-    <input type="checkbox" v-model="iceCreamFlavors" value="Chocolate">
+    <input type="checkbox" v-model="iceCreamFlavors" value="Chocolate" />
     Chocolate
-  </input>
   </label>
   <label>
-    <input type="checkbox" v-model="iceCreamFlavors" value="Cookie and cream">
+    <input type="checkbox" v-model="iceCreamFlavors" value="Cookie and cream" />
     Cookie and cream
-  </input>
   </label>
   {{ iceCreamFlavors }}
   <ul></ul>
