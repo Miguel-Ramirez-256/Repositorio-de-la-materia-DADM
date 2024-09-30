@@ -31,21 +31,6 @@ const iceCreamFlavors = ref([]);
   </button>
   </form>
   <ul></ul>
-  <!-- Helados -->
-   <label>
-    <input type="checkbox" v-model="iceCreamFlavors" value="Vanilla" />
-    Vanilla
-  </label>
-  <label>
-    <input type="checkbox" v-model="iceCreamFlavors" value="Chocolate" />
-    Chocolate
-  </label>
-  <label>
-    <input type="checkbox" v-model="iceCreamFlavors" value="Cookie and cream" />
-    Cookie and cream
-  </label>
-  {{ iceCreamFlavors }}
-  <ul></ul>
   {{ newItemHighPriority }}
   <!-- Lista -->
   <ul>
