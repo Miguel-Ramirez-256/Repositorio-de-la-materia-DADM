@@ -54,6 +54,9 @@ const activateEdition = (activate) => {
   Agregar Articulo
 </button>
   </div>
+  <!--Colocando un hiperenlace-->
+  <a v-bind:href="'https://' + newItem" target="_blank">{{ newItem == "" ?  "🔗 Link 🔗" : newItem }}</a>
+  {{'https://' + newItem}}
   <!--Agrupando entradas de usuario-->
   <form 
   v-on:submit.prevent="saveItem" 
