@@ -55,7 +55,7 @@ const activateEdition = (activate) => {
 </button>
   </div>
   <!--Colocando un hiperenlace-->
-  <a v-bind:href="'https://' + newItem" target="_blank">{{ newItem == "" ?  "🔗 Link 🔗" : newItem }}</a>
+  <a v-bind:href="'https://' + (newItem == '' ? 'www.google.com' : newItem)" target="_blank">{{ newItem == "" ?  "🔗 Link 🔗" : newItem }}</a>
   {{'https://' + newItem}}
   <!--Agrupando entradas de usuario-->
   <form 
