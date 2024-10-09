@@ -10,6 +10,7 @@ const items = ref([
   {id:'2', label: '1/4 de jamon'},
   {id:'3', label: '1 nutella'}
 ]);
+
 //Item-Method
 const saveItem = () => { 
   // Add new item
@@ -17,8 +18,8 @@ const saveItem = () => {
   // Clean the input
   newItem.value = '';
 };
-// --- Formulario ---
 
+// --- Formulario ---
 const newItem = ref("");
 const newItemHighPriority = ref(false);
 const iceCreamFlavors = ref([]);
@@ -26,14 +27,10 @@ const editing = ref(true);
 const activateEdition = (activate) => {
   editing.value = activate;
 };
-
-
 </script>
 
 <template>
-
   <div class="header">
-
     <h1>
    <i class="material-icons shopping-cart-icon">
     local_mall
@@ -54,27 +51,30 @@ const activateEdition = (activate) => {
   Agregar Articulo
 </button>
   </div>
-  <!--Colocando un hiperenlace-->
-  <a v-bind:href="'https://' + (newItem == '' ? 'www.google.com' : newItem)" target="_blank">{{ newItem == "" ?  "🔗 Link 🔗" : newItem }}</a>
-  {{'https://' + newItem}}
+
   <!--Agrupando entradas de usuario-->
   <form 
   v-on:submit.prevent="saveItem" 
   v-if="editing"
   class="add-item form">
   <input v-model="newItem" type="text" placeholder="Agregar un articulo" />
+
   <!--Caja de seleccion de Prioridad-->
   <label>
     <input type="checkbox" v-model="newItemHighPriority" />
     Alta Prioridad
   </label>
+  
   <!--Boton-->
-  <button class="btn btn-primary">
+  <button 
+  :disabled="newItem.length === 0" 
+  class="btn btn-primary">
     Salvar Articulo
   </button>
   </form>
   <ul></ul>
   {{ newItemHighPriority }}
+
   <!-- Lista -->
   <ul>
     <li v-for="item in items" :key="item.id"> 🛍️ {{  item.label }} </li>
