@@ -75,15 +75,26 @@ const activateEdition = (activate) => {
   <ul></ul>
   {{ newItemHighPriority }}
 
-  <!-- Lista -->
+  <!-- Lista clase con objetos-->
   <ul>
     <li 
     v-for="{label, id, purchased, priority} in items" 
     :key="id"
     class="amazing"
     :class="{strikeout: purchased, priority: priority}"> 
-    {{ priority ? "⚡": "🛍️" }} {{  label }} </li>
+    {{ priority ? "⚡": "🛍️" }} {{  label }} 
+  </li>
   </ul>
+  <!-- Lista clases con arreglos -->
+  <ul>
+    <li 
+    v-for="{label, id, purchased, priority} in items" 
+    :key="id"
+    :class="[purchased ? 'strikeout' : '', priority ? 'priority' : '']"> 
+    {{ priority ? "⚡": "🛍️" }} {{  label }} 
+    </li>
+  </ul>
+  
   <p v-if="items.length === 0">🥀 NO HAY ELEMENTOS EN LA LISTA 🥀</p>
 </template>
 
