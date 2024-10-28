@@ -27,6 +27,11 @@ const editing = ref(true);
 const activateEdition = (activate) => {
   editing.value = activate;
 };
+
+// Alternando el esta de compra del item
+const togglePurchased = (item) => {
+  item.purchased = !item.purchased;
+};
 </script>
 
 <template>
@@ -78,23 +83,25 @@ const activateEdition = (activate) => {
   <!-- Lista clase con objetos-->
   <ul>
     <li 
-    v-for="{label, id, purchased, priority} in items" 
-    :key="id"
-    class="amazing"
+    v-for="{label, id, purchased, priority}, index in items" 
+    @click="togglePurchased(items[index])"
+    v-bind:key="id"
     :class="{strikeout: purchased, priority: priority}"> 
-    {{ priority ? "⚡": "🛍️" }} {{  label }} 
-  </li>
-  </ul>
-  <!-- Lista clases con arreglos -->
-  <ul>
-    <li 
-    v-for="{label, id, purchased, priority} in items" 
-    :key="id"
-    :class="[purchased ? 'strikeout' : '', priority ? 'priority' : '']"> 
     {{ priority ? "⚡": "🛍️" }} {{  label }} 
     </li>
   </ul>
-  
+  <!--Lista con referencia al objeto-->
+<!--
+  <ul>
+    <li
+      v-for="item in items"
+      @click="togglePurchased(item)"
+      v-bind:key="item.id"
+      :class="{ strikeout: item.purchased, item.priority: item.highPriority }">
+      {{ priority ? "⚡": "🛍️" }} {{  label }}
+    </li>
+  </ul>
+  -->
   <p v-if="items.length === 0">🥀 NO HAY ELEMENTOS EN LA LISTA 🥀</p>
 </template>
 
