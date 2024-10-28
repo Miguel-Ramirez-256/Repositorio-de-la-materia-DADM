@@ -14,9 +14,14 @@ const items = ref([
 //Item-Method
 const saveItem = () => { 
   // Add new item
-  items.value.push({id: items.value.length +1, label: newItem.value})
+  items.value.push({
+    id: items.value.length +1, 
+    label: newItem.value,
+    highPriority: newItemHighPriority.value  
+  });
   // Clean the input
   newItem.value = '';
+  newItemHighPriority.value = false;
 };
 
 // --- Formulario ---
