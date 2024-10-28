@@ -24,6 +24,15 @@ const saveItem = () => {
   newItemHighPriority.value = false;
 };
 
+const doEdit = (edit) => {
+  editing.value = edit;
+  // Limpiando la entrada de texto
+  // en caso de que se oculte o muestre
+  // el formulario
+  newItem.value = "";
+  newItemHighPriority.value = false;
+};
+
 // --- Formulario ---
 const newItem = ref("");
 const newItemHighPriority = ref(false);
