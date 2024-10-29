@@ -1,5 +1,5 @@
 <script setup>
-import { ref, useId } from 'vue';
+import { ref, computed } from 'vue';
 // Modelo
 const header = ref('App lista de compras');
 //---items---
@@ -46,6 +46,12 @@ const activateEdition = (activate) => {
 const togglePurchased = (item) => {
   item.purchased = !item.purchased;
 };
+
+// Creando una propiedad computada
+const characterCount = computed(()=>{
+  // Toda propiedad computada debe regresar un valor
+  return newItem.value.length;
+});
 </script>
 
 <template>
@@ -90,6 +96,11 @@ const togglePurchased = (item) => {
   class="btn btn-primary">
     Salvar Articulo
   </button>
+  
+  <!-- Contador -->
+  <p class="counter">
+    {{ characterCount }} / 200
+  </p>
   </form>
   <ul></ul>
   {{ newItemHighPriority }}
