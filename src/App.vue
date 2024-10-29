@@ -47,11 +47,18 @@ const togglePurchased = (item) => {
   item.purchased = !item.purchased;
 };
 
-// Creando una propiedad computada
+// Propiedad computada
 const characterCount = computed(()=>{
   // Toda propiedad computada debe regresar un valor
   return newItem.value.length;
 });
+
+// Creando propiedad computada que invierte items de la lista
+const reversedItems = computed(() => {
+  return [...items.value].reverse();
+});
+//Alternativa para la creacion de la propiedad
+// const reversedItems = computed(() => [...items.value].reverse());
 </script>
 
 <template>
@@ -96,7 +103,7 @@ const characterCount = computed(()=>{
   class="btn btn-primary">
     Salvar Articulo
   </button>
-  
+
   <!-- Contador -->
   <p class="counter">
     {{ characterCount }} / 200
@@ -108,8 +115,8 @@ const characterCount = computed(()=>{
   <!-- Lista clase con objetos-->
   <ul>
     <li 
-    v-for="{label, id, purchased, priority}, index in items" 
-    @click="togglePurchased(items[index])"
+    v-for="({label, id, purchased, priority}, index) in reversedItems" 
+    @click="togglePurchased(reversedItems[index])"
     v-bind:key="id"
     :class="{strikeout: purchased, priority: priority}"> 
     {{ priority ? "⚡": "🛍️" }} {{  label }} 
