@@ -5,7 +5,6 @@
     <slot name="icon" :hover="hover">➡️</slot>
     <slot>Submit</slot>
   </button>
-  {{ hover }}
 </template>
   
   <style scoped>
