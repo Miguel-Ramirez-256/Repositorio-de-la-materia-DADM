@@ -1,8 +1,11 @@
 <template>
-  <button> 
-    <slot name="icon">➡️</slot>
+  <button 
+    @mouseenter="hover = true"
+    @mouseleave="hover = false"> 
+    <slot name="icon" :hover="hover">➡️</slot>
     <slot>Submit</slot>
   </button>
+  {{ hover }}
 </template>
   
   <style scoped>
@@ -16,7 +19,8 @@ button{
 }
   </style>
 
-  <script setup>
-
-  </script>
+<script setup>
+import { ref } from 'vue';
+const hover = ref(false);
+</script>
   
