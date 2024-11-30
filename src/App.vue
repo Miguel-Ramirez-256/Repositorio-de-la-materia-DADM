@@ -4,8 +4,8 @@ import fancyButton from './components/FancyButton.vue';
 
 <template>
   <div class="content">
-    <fancy-button >
-      <strong>E</strong>nviar
+    <fancy-button>
+      Hazme Clic
     </fancy-button>
   </div>
 </template>

@@ -1,9 +1,9 @@
 <template>
-    <button>
-        <slot>Submit</slot>
-        <slot>Submit</slot>
-    </button>
-  </template>
+  <button> 
+    <slot name="icon">➡️</slot>
+    <slot>Submit</slot>
+  </button>
+</template>
   
   <style scoped>
   .content{
